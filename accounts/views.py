@@ -17,7 +17,7 @@ class AccountSortedView(generics.ListAPIView):
 
     def get_queryset(self):
         num = self.kwargs["num"]
-        return self.queryset.order_by("date_joined")[0:num]
+        return self.queryset.order_by("-date_joined")[0:num]
 
 
 class AccountDetailView(generics.RetrieveUpdateAPIView):
