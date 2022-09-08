@@ -13,12 +13,11 @@ class AccountModelTest(TestCase):
             "is_seller": True,
         }
 
-        cls.account = Account.objects.create_user(**cls.account_data)
+        cls.account: Account = Account.objects.create_user(**cls.account_data)
 
     def test_account_fields_values(self):
-        account: Account = Account.objects.get(id=1)
 
-        self.assertEquals(account.username, self.account_data["username"])
-        self.assertEquals(account.first_name, self.account_data["first_name"])
-        self.assertEquals(account.last_name, self.account_data["last_name"])
-        self.assertEquals(account.is_seller, self.account_data["is_seller"])
+        self.assertEquals(self.account.username, self.account_data["username"])
+        self.assertEquals(self.account.first_name, self.account_data["first_name"])
+        self.assertEquals(self.account.last_name, self.account_data["last_name"])
+        self.assertEquals(self.account.is_seller, self.account_data["is_seller"])

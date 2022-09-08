@@ -22,12 +22,10 @@ class ProductModelTest(TestCase):
             "seller": cls.account,
         }
 
-        cls.products = Product.objects.create(**cls.product_data)
+        cls.product: Product = Product.objects.create(**cls.product_data)
 
     def test_product_fields_values(self):
-        product: Product = Product.objects.get(id=1)
-
-        self.assertEquals(product.description, self.product_data["description"])
-        self.assertEquals(product.price, self.product_data["price"])
-        self.assertEquals(product.quantity, self.product_data["quantity"])
-        self.assertEquals(product.seller, self.product_data["seller"])
+        self.assertEquals(self.product.description, self.product_data["description"])
+        self.assertEquals(self.product.price, self.product_data["price"])
+        self.assertEquals(self.product.quantity, self.product_data["quantity"])
+        self.assertEquals(self.product.seller, self.product_data["seller"])

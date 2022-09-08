@@ -22,6 +22,8 @@ class AccountSortedView(generics.ListAPIView):
 
 class AccountDetailView(generics.RetrieveUpdateAPIView):
     queryset = Account.objects.all()
+    # import ipdb
+    # ipdb.set_trace()
     serializer_class = AccountSerializer
 
     authentication_classes = [TokenAuthentication]

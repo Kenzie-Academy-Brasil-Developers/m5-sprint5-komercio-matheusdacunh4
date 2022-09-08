@@ -10,8 +10,8 @@ class IsAccountOwnerOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        ipdb.set_trace()
-        return obj.is_seller == request.user
+        # ipdb.set_trace()
+        return obj == request.user
 
 
 class IsSellerOrReadOnly(permissions.BasePermission):
